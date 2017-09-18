@@ -29,6 +29,7 @@ require('db_configuration.php');
 require('InsertUtil.php');
 ?>
 <?PHP echo getTopNav(); ?>
+
 <div id="pop_up_fail" class="container pop_up" style="display:none">
     <div class="pop_up_background">
         <img class="pop_up_img_fail" src="pic/info_circle.png">
@@ -36,7 +37,6 @@ require('InsertUtil.php');
         <button class="pop_up_button" onclick="toggle_display('pop_up_fail')">OK</button>
     </div>
 </div>
-
 
 <div>
     <br>
@@ -47,21 +47,70 @@ require('InsertUtil.php');
             <th>Word</th>
             <th>English Word</th>
             <th>Image Thumbnail</th>
-            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-            <tr>
-                <td><input type="textbox" name="word" id="name"/></td>
-                <td><input type="textbox" name="eng_word" id="eng_word"/></td>
-                <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
-                <td><input class="upload" type="submit" value="Add Word" name="submit"/></td>
-            </tr>
-        </form>
+        <div>
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <div class="container">
+                    <div style="text-align:center">
+                        <input class="main-buttons" type="submit" value="Add Words" name="submit"/>
+                    </div>
+                </div>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+                <tr>
+                    <td><input type="textbox" name="word" id="name"/></td>
+                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
+                </tr>
+            </form>
+        </div>
 
         <?php
-
 
         if (isset($_POST['submit'])) {
             if (isset($_POST['word'])) {
