@@ -51,7 +51,8 @@ require('InsertUtil.php');
         </thead>
         <tbody>
         <div>
-            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data"
+                  onsubmit="return validateForm()">
                 <div class="container">
                     <div style="text-align:center">
                         <input class="main-buttons" type="submit" value="Add Words" name="submit"/>
@@ -112,38 +113,27 @@ require('InsertUtil.php');
 
         <?php
 
-        for($i=0; $i<10; $i++) {
-//            if($_POST['$word'.$i] != null) {
+        for ($i = 0; $i < 10; $i++) {
+            if (isset($_POST['submit'])) {
+                if (isset($_POST['word' . $i])) {
+                    $word = $_POST['word' . $i];
+                }
+                if (isset($_POST['eng_word' . $i])) {
+                    $eng = $_POST['eng_word' . $i];
+                }
+                $inputFileName = $_FILES["fileToUpload"]["tmp_name"];
 
-                if (isset($_POST['submit'])) {
-                    if (isset($_POST['word' . $i])) {
-                        $word = $_POST['word' . $i];
-                    }
-                    if (isset($_POST['eng_word' . $i])) {
-                        $eng = $_POST['eng_word' . $i];
-                    }
-                    //if (isset($_POST['fileToUpload'])) {
-                    $inputFileName = $_FILES["fileToUpload"]["tmp_name"];
-                    //echo $inputFileName;
+                $target_dir = "./Images/";
+                $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+                $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+                $imageName = basename($_FILES["fileToUpload"]["name"]);
+                if (!empty($imageName)) {
+                    copy($inputFileName, $target_file);
+                }
 
-                    $target_dir = "./Images/";
-                    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-                    //echo $target_file;
-                    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-                    $imageName = basename($_FILES["fileToUpload"]["name"]);
-                    // echo $imageName;
-                    if (!empty($imageName)) {
-                        copy($inputFileName, $target_file);
-                    }
-
-                    insertIntoWordsTable($word, $eng, $imageName);
-                    $word = null;
-                    $eng = null;
-//                }
-//                else{
-//                    continue;
-//                }
-
+                insertIntoWordsTable($word, $eng, $imageName);
+                $word = null;
+                $eng = null;
             }
         }
 
@@ -154,6 +144,7 @@ require('InsertUtil.php');
                 if (eng == "") {
 
                     document.getElementById("error").style = "display:block;background-color: #ce4646;padding:5px;color:#fff;";
+                    document.write("<br>");
                     return false;
                 }
             }
