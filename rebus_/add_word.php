@@ -51,60 +51,60 @@ require('InsertUtil.php');
         </thead>
         <tbody>
         <div>
-            <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="container">
                     <div style="text-align:center">
                         <input class="main-buttons" type="submit" value="Add Words" name="submit"/>
                     </div>
                 </div>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word0" id="name0"/></td>
+                    <td><input type="textbox" name="eng_word0" id="eng_word0"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word1" id="name1"/></td>
+                    <td><input type="textbox" name="eng_word1" id="eng_word1"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word2" id="name2"/></td>
+                    <td><input type="textbox" name="eng_word2" id="eng_word2"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word3" id="name3"/></td>
+                    <td><input type="textbox" name="eng_word3" id="eng_word3"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word4" id="name4"/></td>
+                    <td><input type="textbox" name="eng_word4" id="eng_word4"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word5" id="name5"/></td>
+                    <td><input type="textbox" name="eng_word5" id="eng_word5"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word6" id="name6"/></td>
+                    <td><input type="textbox" name="eng_word6" id="eng_word6"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word7" id="name7"/></td>
+                    <td><input type="textbox" name="eng_word7" id="eng_word7"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word8" id="name8"/></td>
+                    <td><input type="textbox" name="eng_word8" id="eng_word8"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
                 <tr>
-                    <td><input type="textbox" name="word" id="name"/></td>
-                    <td><input type="textbox" name="eng_word" id="eng_word"/></td>
+                    <td><input type="textbox" name="word9" id="name9"/></td>
+                    <td><input type="textbox" name="eng_word9" id="eng_word9"/></td>
                     <td><input class="upload" type="file" name="fileToUpload" id="fileToUpload"/></td>
                 </tr>
             </form>
@@ -112,28 +112,39 @@ require('InsertUtil.php');
 
         <?php
 
-        if (isset($_POST['submit'])) {
-            if (isset($_POST['word'])) {
-                $word = $_POST['word'];
-            }
-            if (isset($_POST['eng_word'])) {
-                $eng = $_POST['eng_word'];
-            }
-            //if (isset($_POST['fileToUpload'])) {
-            $inputFileName = $_FILES["fileToUpload"]["tmp_name"];
-            //echo $inputFileName;
+        for($i=0; $i<10; $i++) {
+//            if($_POST['$word'.$i] != null) {
 
-            $target_dir = "./Images/";
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-            //echo $target_file;
-            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-            $imageName = basename($_FILES["fileToUpload"]["name"]);
-            // echo $imageName;
-            if (!empty($imageName)) {
-                copy($inputFileName, $target_file);
-            }
+                if (isset($_POST['submit'])) {
+                    if (isset($_POST['word' . $i])) {
+                        $word = $_POST['word' . $i];
+                    }
+                    if (isset($_POST['eng_word' . $i])) {
+                        $eng = $_POST['eng_word' . $i];
+                    }
+                    //if (isset($_POST['fileToUpload'])) {
+                    $inputFileName = $_FILES["fileToUpload"]["tmp_name"];
+                    //echo $inputFileName;
 
-            insertIntoWordsTable($word, $eng, $imageName);
+                    $target_dir = "./Images/";
+                    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+                    //echo $target_file;
+                    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+                    $imageName = basename($_FILES["fileToUpload"]["name"]);
+                    // echo $imageName;
+                    if (!empty($imageName)) {
+                        copy($inputFileName, $target_file);
+                    }
+
+                    insertIntoWordsTable($word, $eng, $imageName);
+                    $word = null;
+                    $eng = null;
+//                }
+//                else{
+//                    continue;
+//                }
+
+            }
         }
 
         ?>
